@@ -3,6 +3,7 @@ package com.cice.lambda;
 import com.cice.lambda.interfaces.IFuncional1;
 import com.cice.lambda.interfaces.ImpIFuncional1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -10,8 +11,6 @@ import java.util.function.Predicate;
 public class Main {
 
     public static void main(String[] args) {
-        IFuncional1<Integer,Integer, Integer> if1 = new ImpIFuncional1();
-        int suma = if1.test(1, 5);
 
         IFuncional1<Integer,Integer, Integer> if2 = (a, b) -> (a / b);
         int calculo = if2.test(10, 4);
@@ -35,6 +34,25 @@ public class Main {
         System.out.println("____" + count);
 
         nombres.forEach(t  -> System.out.println("Elemento: " + t));
+
+
+        Generica<String> generica = new Generica<>();
+        generica.prueba("Hola");
+
+        List<String>lista4 = new ArrayList<>();
+        if (lista4 instanceof List){
+            System.out.println("Es un List");
+
+        } else if (lista4 instanceof ArrayList){
+            System.out.println("Es un arraylist");
+        }
+
+        Generica<Integer> generica2 = new Generica<>();
+        if (generica2 instanceof Serializable){
+            System.out.println("Es serializable");
+        } else {
+            System.out.println("No es serializable");
+        }
 
 
         }
